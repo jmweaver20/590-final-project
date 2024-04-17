@@ -26,12 +26,12 @@ for fileName in os.listdir(inDir):
     inputInt = int.from_bytes(inputBytes, byteorder='big')
     inFile.close()
     #update the outputShare
-    outputShare += inputInt
+    outputShare += (inputInt % P)
     count += 1
 
 print("merged "+str(count)+" inputs.")
 
-outputBytes = outputShare.to_bytes(length=4, byteorder='big')
+outputBytes = outputShare.to_bytes(length=8, byteorder='big')
 
 #write the merged share of DB to output file
 outFile = open(outFileName, "w")

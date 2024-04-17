@@ -3,11 +3,12 @@
 import sys
 import os
 import math
+import shutil
 
 #biggest prime that fits in 31 bits
 P = 2**31-1
 
-def gen_beavers(filename: str):
+def gen_beavers():
     #no inputs
     #output shares a_1,b_1,c_1 and a_2,b_2,c_2 in two .txt files
     a1 = int.from_bytes(os.urandom(math.ceil(math.log2(P))), byteorder='big') % P
@@ -34,8 +35,8 @@ def gen_beavers(filename: str):
     c1Bytes = c1.to_bytes(length=4, byteorder='big')
     c2Bytes = c2.to_bytes(length=4, byteorder='big')
 
-    s1File = open(f"{filename}_abc_1.txt", 'w')
-    s2File = open(f"{filename}_abc_2.txt", 'w')
+    s1File = open("abc_1.txt", 'w')
+    s2File = open("abc_2.txt", 'w')
 
     s1File.writelines([a1Bytes.hex()+"\n", b1Bytes.hex()+"\n", c1Bytes.hex()+"\n"])
     s2File.writelines([a2Bytes.hex()+"\n", b2Bytes.hex()+"\n", c2Bytes.hex()+"\n"])
@@ -138,8 +139,22 @@ def beaver_compute(xFileName: str, yFileName: str, maskedFileName: str, beaverFi
 
     outFile.close()
 
-gen_beavers("male_comp_professors")
-beaver_mask("varun_male_1.txt", "varun_comp_professors_1.txt", "abc_1.txt", "de_1.txt")
-beaver_mask("varun_male_2.txt", "varun_comp_professors_2.txt", "abc_2.txt", "de_2.txt")
-beaver_compute("varun_male_1.txt", "varun_comp_professors_1.txt", "de_2.txt", "abc_1.txt", "computed_male_gpa_1.txt", 1)
-beaver_compute("varun_male_2.txt", "varun_comp_professors_2.txt", "de_1.txt", "abc_2.txt", "computed_male_gpa_2.txt", 2)
+def multiply_categories(cat1: str, cat2: str, names: list)
+    for name in names:
+        x1File = f"{name}_{cat1}_1.txt"
+        x2File = f"{name}_{cat1}_2.txt"
+        y1File = f"{name}_{cat2}_1.txt"
+        y2File = f"{name}_{cat2}_2.txt"
+        gen_beavers("")
+        beaver_mask(x1File, y1File, "abc_1.txt", "de_1.txt")
+        beaver_mask(x2File, y2File, "abc_2.txt", "de_2.txt")
+        beaver_compute(x1File, y1File, "de_2.txt", "abc_1.txt", f"{name}_computed_1.txt", 1)
+        beaver_compute(x2File, y2File, "de_1.txt", "abc_2.txt", f"{name}_computed_2.txt", 2)
+
+
+names = ["varun", "vrinda", "erin"]
+cat1 = "female"
+cat2 = "comp_professors"
+multiply_categories(cat1, cat2, names)
+    
+    
