@@ -142,18 +142,22 @@ def beaver_compute(xFileName: str, yFileName: str, maskedFileName: str, beaverFi
 def multiply_categories(cat1: str, cat2: str, names: list):
 
     myDir = os.getcwd()
-    path1 = os.path.join(myDir, "ashares")
-    os.mkdir(path1)
 
-    myDir = os.getcwd()
+    # NOTE: added if statements so that an error isn't thrown if the directory already exists 
+    path1 = os.path.join(myDir, "ashares")
+    if not os.path.exists(path1):
+        os.mkdir(path1)
+
     path2 = os.path.join(myDir, "bshares")
-    os.mkdir(path2)
+    if not os.path.exists(path2):
+        os.mkdir(path2)
 
     for name in names:
-        x1File = f"{name}_{cat1}_1.txt"
-        x2File = f"{name}_{cat1}_2.txt"
-        y1File = f"{name}_{cat2}_1.txt"
-        y2File = f"{name}_{cat2}_2.txt"
+        #NOTE: changed the filenames to include the subdirectory each share is stored in
+        x1File = f"{cat1}_1/{name}_{cat1}_1.txt"
+        x2File = f"{cat1}_2/{name}_{cat1}_2.txt"
+        y1File = f"{cat2}_1/{name}_{cat2}_1.txt"
+        y2File = f"{cat2}_2/{name}_{cat2}_2.txt"
         gen_beavers()
         beaver_mask(x1File, y1File, "abc_1.txt", "de_1.txt")
         beaver_mask(x2File, y2File, "abc_2.txt", "de_2.txt")
@@ -167,7 +171,7 @@ def multiply_categories(cat1: str, cat2: str, names: list):
         shutil.move(src_path, path2)
 
 
-names = ["varun", "vrinda", "erin"]
+names = ["varun", "jonathan", "erin"]
 cat1 = "female"
 cat2 = "comp_professors"
 multiply_categories(cat1, cat2, names)
