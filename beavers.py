@@ -139,22 +139,38 @@ def beaver_compute(xFileName: str, yFileName: str, maskedFileName: str, beaverFi
 
     outFile.close()
 
-def multiply_categories(cat1: str, cat2: str, names: list)
+def multiply_categories(cat1: str, cat2: str, names: list):
+
+    myDir = os.getcwd()
+    path1 = os.path.join(myDir, "ashares")
+    os.mkdir(path1)
+
+    myDir = os.getcwd()
+    path2 = os.path.join(myDir, "bshares")
+    os.mkdir(path2)
+
     for name in names:
         x1File = f"{name}_{cat1}_1.txt"
         x2File = f"{name}_{cat1}_2.txt"
         y1File = f"{name}_{cat2}_1.txt"
         y2File = f"{name}_{cat2}_2.txt"
-        gen_beavers("")
+        gen_beavers()
         beaver_mask(x1File, y1File, "abc_1.txt", "de_1.txt")
         beaver_mask(x2File, y2File, "abc_2.txt", "de_2.txt")
         beaver_compute(x1File, y1File, "de_2.txt", "abc_1.txt", f"{name}_computed_1.txt", 1)
         beaver_compute(x2File, y2File, "de_1.txt", "abc_2.txt", f"{name}_computed_2.txt", 2)
+        
+        src_path = myDir + "/" + f"{name}_computed_1.txt"
+        shutil.move(src_path, path1)
+
+        src_path = myDir + "/" + f"{name}_computed_2.txt"
+        shutil.move(src_path, path2)
 
 
 names = ["varun", "vrinda", "erin"]
 cat1 = "female"
 cat2 = "comp_professors"
 multiply_categories(cat1, cat2, names)
-    
+
+
     
