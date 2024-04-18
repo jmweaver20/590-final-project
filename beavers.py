@@ -174,7 +174,7 @@ def filter_categories(cat1: str, cat2: str, names: list):
 names = ["varun", "jonathan", "erin"]
 cat1 = "female"
 cat2 = "comp_professors"
-multiply_categories(cat1, cat2, names)
+filter_categories(cat1, cat2, names)
 
 
     
