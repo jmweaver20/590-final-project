@@ -139,7 +139,7 @@ def beaver_compute(xFileName: str, yFileName: str, maskedFileName: str, beaverFi
 
     outFile.close()
 
-def multiply_categories(cat1: str, cat2: str, names: list):
+def filter_categories(cat1: str, cat2: str, names: list):
 
     myDir = os.getcwd()
 
