@@ -5,7 +5,6 @@ import os
 import math
 import shutil
 
-#biggest prime that fits in 31 bits
 P = 2**31-1
 
 def gen_beavers():
@@ -175,6 +174,3 @@ names = ["varun", "jonathan", "erin"]
 cat1 = "female"
 cat2 = "comp_professors"
 multiply_categories(cat1, cat2, names)
-
-
-    

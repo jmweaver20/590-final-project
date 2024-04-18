@@ -2,7 +2,6 @@
 #output the merged value
 
 import sys
-import os
 
 P = 2**31-1
 

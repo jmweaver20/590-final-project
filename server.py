@@ -1,5 +1,4 @@
-#input a folder name holding shares and an output file name
-#output a file with all the provided shares merged
+"""Server that adds together all shares in a folder."""
 
 import sys
 import os
