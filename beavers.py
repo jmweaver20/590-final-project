@@ -138,7 +138,7 @@ def beaver_compute(xFileName: str, yFileName: str, maskedFileName: str, beaverFi
 
     outFile.close()
 
-def multiply_categories(cat1: str, cat2: str, names: list):
+def filter_categories(cat1: str, cat2: str, names: list):
 
     myDir = os.getcwd()
 
@@ -173,4 +173,4 @@ def multiply_categories(cat1: str, cat2: str, names: list):
 names = ["varun", "jonathan", "erin"]
 cat1 = "female"
 cat2 = "comp_professors"
-multiply_categories(cat1, cat2, names)
+filter_categories(cat1, cat2, names)

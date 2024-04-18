@@ -6,7 +6,7 @@ import math
 #biggest prime that fits in 31 bits
 #useful resource: https://t5k.org/lists/2small/
 
-P = 2**31-1 # do we need to change this
+P = 2**31-1 
 
 def make_shares(input: int, s1FileName: str, s2FileName: str) -> None:
     """Input a number as input to the computation and two output share file names,
