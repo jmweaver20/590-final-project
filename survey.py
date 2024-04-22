@@ -8,7 +8,7 @@ P = 2**31-1 # do we need to change this
 print("Welcome to the CS + Gender Survey!")
 
 name: str = input("What is your first name: ")
-name: str = name.lower()
+name = name.lower()
 
 gender: str = str(input("What gender do you identify with (female, male, nonbinary): "))
 

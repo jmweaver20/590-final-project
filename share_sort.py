@@ -20,5 +20,5 @@ def sort_shares(folderpath: str):
                     os.mkdir(dest_path)
                 shutil.move(src_path, dest_path)
 
-source_directory = os.getcwd()
-sort_shares(f"{source_directory}/shares")
+# source_directory = os.getcwd()
+# sort_shares(f"{source_directory}/shares")
