@@ -2,7 +2,7 @@
 import os
 import shutil
 
-sub_strings = ["_female_1.txt", "_female_2.txt", "_male_1.txt", "_male_2.txt", "_nonbinary_1.txt", "_nonbinary_2.txt", "_comp_professors_1.txt", "_comp_professors_2.txt"]
+sub_strings = ["_female_1.txt", "_female_2.txt", "_male_1.txt", "_male_2.txt", "_nonbinary_1.txt", "_nonbinary_2.txt", "_comp_professors_1.txt", "_comp_professors_2.txt", "_comp_major_1.txt", "_comp_major_2.txt", "_wellness_1.txt", "_wellness_2.txt", "_comp_comfortability_1.txt", "_comp_comfortability_2.txt", "_other_comfortability_1.txt", "_other_comfortability_2.txt", "_course_performance_1.txt", "_course_performance_2.txt", "_gpa_1.txt", "_gpa_2.txt"]
 
 def sort_shares(folderpath: str):
     """Sorts shares in a folder into subfolders."""
@@ -19,6 +19,23 @@ def sort_shares(folderpath: str):
                 if not os.path.exists(dest_path):
                     os.mkdir(dest_path)
                 shutil.move(src_path, dest_path)
+
+def delete_dir(folderpath: str):
+    """Deletes a folder and its files."""
+    # for filename in os.listdir(folderpath):
+    #     filepath = f"{folderpath}/{filename}"
+    shutil.rmtree(folderpath)
+
+def move_to_shares():
+    """Moves all valid .txt files to the shares folder."""
+    for filename in os.listdir(str(os.getcwd())):
+        if ".txt" in filename:
+            src_path = f"{str(os.getcwd())}/{filename}"
+            dest_path = f"{str(os.getcwd())}/shares"
+            if not os.path.exists(dest_path):
+                os.mkdir(dest_path)
+            shutil.move(src_path, dest_path)
+
 
 # source_directory = os.getcwd()
 # sort_shares(f"{source_directory}/shares")

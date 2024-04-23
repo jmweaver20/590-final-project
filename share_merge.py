@@ -28,6 +28,6 @@ def share_merge(s1FileName: str, s2FileName: str) -> int:
 
     sum = (s1Output + s2Output) % P
 
-    print("merged result: " + str(sum))
+    # print("merged result: " + str(sum))
 
     return sum

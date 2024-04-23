@@ -29,7 +29,7 @@ def server_func(inFolderName: str, outFileName: str) -> int:
         outputShare += (inputInt % P)
         count += 1
 
-    print("merged "+str(count)+" inputs.")
+    # print("merged "+str(count)+" inputs.")
 
     outputBytes = outputShare.to_bytes(length=8, byteorder='big')
 
